@@ -5,7 +5,7 @@ var app = app || {};
 
 app.LineView = Backbone.View.extend({
   tagName: 'path', 
-  className: 'line', 
+  className: 'line red noFill thicker', 
 
   initialize: function(options) {
     //initialize the view with the data from LineModel, append it to parent container
