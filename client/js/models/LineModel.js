@@ -7,7 +7,7 @@ app.LineModel = Backbone.Model.extend({
   defaults: {
     coordinates: [],
     fill: 'none',
-    stroke: '#00000',
+    stroke: '#000000',
     stroke_width: '4',
     id: null //don't really need this explicitly. for clarity only
   },
