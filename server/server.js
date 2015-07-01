@@ -1,4 +1,12 @@
+// set up server and sockets
 var express = require('express');
+var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+var port = 8080;
+server.listen(port);
+
+// set up database
 var db = require('./db/config');
 var Line = require('./db/models/line');
 var Lines = require('./db/collections/lines');
@@ -6,15 +14,8 @@ var Picture = require('./db/models/picture');
 var Pictures = require('./db/collections/pictures');
 var util = require('./utils'); //TODO maybe as an injection like routes
 
-
-var app = express();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
-var port = 8080;
-server.listen(port);
-
-app.use(express.static(__dirname + '/../client'));
-require('./routes')(app); //is this best way to decorate/dependency inject?
+// require middleware
+require('./middleware')(app, express);
 
 var timer = null;
 
@@ -62,6 +63,7 @@ io.on('connection', function(socket) {
     //console.log(util.retrievePictureModels());
     util.retrievePictureModels(socket);
   });
+
 
 });
 
