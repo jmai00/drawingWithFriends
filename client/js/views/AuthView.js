@@ -9,7 +9,7 @@ app.AuthView = Backbone.View.extend({
       <label><input type="checkbox" name="createNewAccount"> Create new account </label> \
       <input type="text" name="username" placeholder="username">     \
       <input type="password" name="password" placeholder="password">     \
-      <button>Go</button>     \
+      <input type="submit" value="Submit">     \
       <span class="error"></span> \
     </form>     \
   '),

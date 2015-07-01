@@ -407,3 +407,24 @@ header{
 	font-weight: 200;
 	font-size: 3em;
 }
+
+/*Login Form Styling*/
+form.auth {
+  width: 185px;
+  margin-top: 30px;
+}
+
+form>input {
+  display: block;
+  padding: 7px 10px;
+  margin: 11px 0px;
+  width: 155px;
+}
+
+input[type="submit"] {
+  margin: auto;
+  width: 50px;
+}
+
+
+
