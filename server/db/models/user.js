@@ -14,11 +14,9 @@ var User = db.Model.extend({
     });
   },
   hashPassword: function(){
-    bcrypt.genSaltAsync(10).then(function(result) {
-      bcrypt.hashAsync(this.get('password'), result, null, function( error, result) {
-        this.set('password', result);
-      });
-    });
+    var salt = bcrypt.genSaltSync(10);
+    var hash = bcrypt.hashSync(this.get('password'), salt);
+    this.set('password', hash);
   }
 });
 

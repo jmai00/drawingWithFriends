@@ -5,7 +5,9 @@ app.router = Backbone.Router.extend({
     '' : 'home',
     'draw' : 'draw',
     'gallery' : 'gallery',
-    'gallery/:page' : 'gallery' //TODO ????
+    'gallery/:page' : 'gallery', //TODO ????
+    'auth' : 'auth',
+    'logout' : 'logout'
   },
   initialize: function(){
     this.appModel = new app.AppModel(); //the 'app' is the drawing portion of the app
@@ -26,6 +28,7 @@ app.router = Backbone.Router.extend({
       //this.appView.remove();
       //debugger;
     //}
+    debugger
     this.appView = new app.AppView({model: this.appModel});
     //render the view when user goes to draw tab
     //var picture = new app.PictureView({
@@ -40,6 +43,23 @@ app.router = Backbone.Router.extend({
     $('.toolbar').empty();
     this.picturesCollection = new app.PicturesCollection();
     this.picturesView = new app.PicturesView({collection: this.picturesCollection});
-
+  },
+  auth: function () {
+    if(app.loggedIn) { 
+      app.router.prototype.navigate('/logout', { trigger : true });
+      return;
+    }
+    
+    $('.container').empty();
+    new app.AuthView({model: app.AuthModel });
+  },
+  logout: function () {
+    if(!app.loggedIn) { 
+      app.router.prototype.navigate('/auth', { trigger : true });
+      return;
+    }
+    $('.container').empty();
+    new app.LogoutView({model: app.LogoutModel });
   }
 });
+
