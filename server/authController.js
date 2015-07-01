@@ -46,7 +46,7 @@ var controller = {
       } 
       else {
         console.log('Account already exists');
-        res.status(400).send({error: 'Account already exists'});
+        res.status(401).send({error: 'Account already exists'});
       }
     });    
   }
