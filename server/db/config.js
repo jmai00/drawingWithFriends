@@ -73,7 +73,7 @@ bookshelf.knex.schema.hasTable('Line').then(function (exists) {
       line.integer('picture_id').unsigned().references('Picture.id');
       line.text('coordinates'); //json
       line.string('fill', 7);
-      line.string('stroke-width', 7);
+      line.string('stroke_width', 7);
       line.string('stroke', 7);
       line.timestamps();
     }).then(function (table) {

@@ -8,7 +8,7 @@ app.LineModel = Backbone.Model.extend({
     coordinates: [],
     fill: 'none',
     stroke: '#00000',
-    stroke-width: '4',
+    stroke_width: '4',
     id: null //don't really need this explicitly. for clarity only
   },
   initialize: function() {
@@ -25,11 +25,11 @@ app.LineModel = Backbone.Model.extend({
     //This will emit a change event on the model, causing the line to re-render.
     //Adding elements to the existing coordinates array will not emit an event. 
     this.set('coordinates', coordinates);
-    socket.emit('user moved', {id: this.get('id'), 
-                               coordinates: this.get('coordinates'), 
-                               fill: this.get('fill'), 
-                               stroke: this.get('stroke'), 
-                               stroke-width: this.get('stroke-width')});
+    socket.emit('user moved', {id: this.get('id'),
+                               coordinates: this.get('coordinates'),
+                               fill: this.get('fill'),
+                               stroke: this.get('stroke'),
+                               stroke_width: this.get('stroke_width')});
     //ie send all this.attributes?
 
   },
