@@ -13,12 +13,14 @@ app.router = Backbone.Router.extend({
   home : function(){
     //TODO refactor all these container emptys
     $('.container').empty();
+    $('.toolbar').empty();
     //$('.color-picker').empty();
     var homeView = new app.HomeView();
   },
   draw : function () {
     //console.log('running main');
     $('.container').empty();
+    $('.toolbar').empty();
     //$('.color-picker').empty();
     //if (this.appView) {
       //this.appView.remove();
@@ -35,6 +37,7 @@ app.router = Backbone.Router.extend({
     },
   gallery : function(page){
     $('.container').empty();
+    $('.toolbar').empty();
     this.picturesCollection = new app.PicturesCollection();
     this.picturesView = new app.PicturesView({collection: this.picturesCollection});
 
