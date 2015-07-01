@@ -4,6 +4,7 @@ require('./picture'); //don't need var assignment, using bookshelf registry
 var Line = db.Model.extend({
   tableName: 'Line',
   hasTimestamps: true,
+  
   picture: function() {
     return this.belongsTo('Picture', 'picture_id');
   }
