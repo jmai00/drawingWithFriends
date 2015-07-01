@@ -42,6 +42,16 @@ app.PictureView = Backbone.View.extend({
   },
 
   render: function(options) {
+    $('.toolbar').empty();
+    $('.toolbar').append('<div class="selectBlack"></div>');
+    $('.toolbar').append('<div class="selectWhite"></div>');
+    $('.toolbar').append('<div class="selectRed"></div>');
+    $('.toolbar').append('<div class="selectGreen"></div>');
+    $('.toolbar').append('<div class="selectBlue"></div>');
+    $('.toolbar').append('<div class="selectCyan"></div>');
+    $('.toolbar').append('<div class="selectYellow"></div>');
+    $('.toolbar').append('<div class="selectPurple"></div>');
+    $('.toolbar').append('<div class="selectThicknessWrapper"><div class="selectThicknessInner"><div class="selectThinner"></div></div><div class="selectThicknessInner"><div class="selectThin"></div></div><div class="selectThicknessInner"><div class="selectThick"></div></div><div class="selectThicknessInner"><div class="selectThicker"></div></div></div>');
     //TODO all these d3 elems could probably be refactored to be more like $el--attempted but views didn't render correctly
 
     //for line reset render: if the svg element is present, remove it
