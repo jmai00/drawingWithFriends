@@ -14,13 +14,95 @@ a {
   text-decoration: none;
   color: #222;
 }
+
 .line {
-  fill: none;
-  stroke: #222;
-  stroke-width: 3px;
   stroke-linejoin: round;
   stroke-linecap: round;
 }
+
+.black {
+  stroke: #222222;
+}
+
+.white {
+  stroke: #FFFFFF;
+}
+
+.red {
+  stroke: #FF0000;
+}
+
+.green {
+  stroke: #00FF00;
+}
+
+.blue {
+  stroke: #0000FF;
+}
+
+.cyan {
+  stroke: #00FFFF;
+}
+
+.yellow {
+  stroke: #FFFF00;
+}
+
+.purple {
+  stroke: #FF00FF;
+}
+
+.noFill {
+  fill: none;
+}
+
+.blackFill {
+  fill: #222222;
+}
+
+.whiteFill {
+  fill: #FFFFFF;
+}
+
+.redFill {
+  fill: #FF0000;
+}
+
+.greenFill {
+  fill: #00FF00;
+}
+
+.blueFill {
+  fill: #0000FF;
+}
+
+.cyanFill {
+  fill: #00FFFF;
+}
+
+.yellowFill {
+  fill: #FFFF00;
+}
+
+.purpleFill {
+  fill: #FF00FF;
+}
+
+.thinner {
+  stroke-width: 2px;
+}
+.thin {
+  stroke-width: 4px;
+}
+
+.thick {
+  stroke-width: 8px;
+}
+
+.thicker {
+  stroke-width: 16px;
+}
+
 nav{
 	float: left;
   width: 150px;
