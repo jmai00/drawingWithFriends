@@ -28,6 +28,14 @@ a {
   stroke: #FFFFFF;
 }
 
+.gray {
+  stroke: #AAAAAA;
+}
+
+.darkgray {
+  stroke: #555555;
+}
+
 .red {
   stroke: #FF0000;
 }
@@ -130,11 +138,37 @@ a {
   display: inline-block;
 }
 
+.selectGray {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #222222;
+  background-color: #AAAAAA;
+  margin: 0px 2px 0px 2px;
+  display: inline-block;
+}
+
+.selectDarkGray {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #222222;
+  background-color: #555555;
+  margin: 0px 2px 0px 2px;
+  display: inline-block;
+}
 .selectRed {
   width: 20px;
   height: 20px;
   border: 3px solid #222222;
   background-color: #FF0000;
+  margin: 0px 2px 0px 2px;
+  display: inline-block;
+}
+
+.selectDarkRed {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #222222;
+  background-color: #8B0000;
   margin: 0px 2px 0px 2px;
   display: inline-block;
 }
@@ -148,11 +182,29 @@ a {
   display: inline-block;
 }
 
+.selectDarkGreen {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #222222;
+  background-color: #008B00;
+  margin: 0px 2px 0px 2px;
+  display: inline-block;
+}
+
 .selectBlue {
   width: 20px;
   height: 20px;
   border: 3px solid #222222;
   background-color: #0000FF;
+  margin: 0px 2px 0px 2px;
+  display: inline-block;
+}
+
+.selectDarkBlue {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #222222;
+  background-color: #00008B;
   margin: 0px 2px 0px 2px;
   display: inline-block;
 }
@@ -166,6 +218,15 @@ a {
   display: inline-block;
 }
 
+.selectDarkCyan {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #222222;
+  background-color: #008B8B;
+  margin: 0px 2px 0px 2px;
+  display: inline-block;
+}
+
 .selectYellow {
   width: 20px;
   height: 20px;
@@ -175,11 +236,47 @@ a {
   display: inline-block;
 }
 
+.selectDarkYellow {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #222222;
+  background-color: #8B8B00;
+  margin: 0px 2px 0px 2px;
+  display: inline-block;
+}
+
 .selectPurple {
   width: 20px;
   height: 20px;
   border: 3px solid #222222;
   background-color: #FF00FF;
+  margin: 0px 2px 0px 2px;
+  display: inline-block;
+}
+
+.selectDarkPurple {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #222222;
+  background-color: #8B008B;
+  margin: 0px 2px 0px 2px;
+  display: inline-block;
+}
+
+.selectBrown {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #222222;
+  background-color: #FFDAB9;
+  margin: 0px 2px 0px 2px;
+  display: inline-block;
+}
+
+.selectDarkBrown {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #222222;
+  background-color: #8B4513;
   margin: 0px 2px 0px 2px;
   display: inline-block;
 }
@@ -231,7 +328,7 @@ a {
   margin: 2px 0px 2px 2px;
 }
 
-.selectBlack:hover, .selectWhite:hover, .selectRed:hover, .selectGreen:hover, .selectBlue:hover, .selectCyan:hover, .selectYellow:hover, .selectPurple:hover {
+.selectBlack:hover, .selectWhite:hover, .selectGray:hover, .selectDarkGray:hover, .selectRed:hover, .selectGreen:hover, .selectBlue:hover, .selectCyan:hover, .selectYellow:hover, .selectPurple:hover, .selectDarkRed:hover, .selectDarkGreen:hover, .selectDarkBlue:hover, .selectDarkCyan:hover, .selectDarkYellow:hover, .selectDarkPurple:hover, .selectBrown:hover, .selectDarkBrown:hover {
   border: 3px solid #ccccff;
 }
 
@@ -239,6 +336,9 @@ a {
   background-color: #ccccff;
 }
 
+.selectedColor {
+  border: 3px solid #ccccff;
+}
 nav{
   float: left;
   width: 150px;
@@ -261,8 +361,9 @@ li {
 	list-style: none;
 }
 
-li.pic h2 {
-  font-family: Comic Sans MS, Comic Sans, sans-serif;
+li.pic h4 {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 300;
   margin: 0
 }
 

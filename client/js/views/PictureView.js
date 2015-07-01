@@ -42,18 +42,31 @@ app.PictureView = Backbone.View.extend({
   },
 
   render: function(options) {
+    // Empty Toolbar, Then Create Elements
     $('.toolbar').empty();
     $('.toolbar').append('<div class="selectBlack"></div>');
     $('.toolbar').append('<div class="selectWhite"></div>');
+    $('.toolbar').append('<div class="selectGray"></div>');
+    $('.toolbar').append('<div class="selectDarkGray"></div>');
     $('.toolbar').append('<div class="selectRed"></div>');
+    $('.toolbar').append('<div class="selectDarkRed"></div>');
     $('.toolbar').append('<div class="selectGreen"></div>');
+    $('.toolbar').append('<div class="selectDarkGreen"></div>');
     $('.toolbar').append('<div class="selectBlue"></div>');
+    $('.toolbar').append('<div class="selectDarkBlue"></div>');
     $('.toolbar').append('<div class="selectCyan"></div>');
+    $('.toolbar').append('<div class="selectDarkCyan"></div>');
     $('.toolbar').append('<div class="selectYellow"></div>');
+    $('.toolbar').append('<div class="selectDarkYellow"></div>');
     $('.toolbar').append('<div class="selectPurple"></div>');
+    $('.toolbar').append('<div class="selectDarkPurple"></div>');
+    $('.toolbar').append('<div class="selectBrown"></div>');
+    $('.toolbar').append('<div class="selectDarkBrown"></div>');
     $('.toolbar').append('<div class="selectThicknessWrapper"><div class="selectThicknessInner"><div class="selectThinner"></div></div><div class="selectThicknessInner"><div class="selectThin"></div></div><div class="selectThicknessInner"><div class="selectThick"></div></div><div class="selectThicknessInner"><div class="selectThicker"></div></div></div>');
+    $('.toolbar div').on('click', function () {
+      console.log( $(this)[0] );
+    });
     //TODO all these d3 elems could probably be refactored to be more like $el--attempted but views didn't render correctly
-
     //for line reset render: if the svg element is present, remove it
     if (this.d3) {
       //this.d3.remove();
@@ -67,6 +80,7 @@ app.PictureView = Backbone.View.extend({
       width: this.model.get('width'),
       height: this.model.get('height')
     })
+
     .call(d3.behavior.drag()
           .on("dragstart", this.model.dragStarted.bind(this.model))
           .on("drag", function() {

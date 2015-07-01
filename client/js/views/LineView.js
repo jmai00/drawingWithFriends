@@ -5,17 +5,16 @@ var app = app || {};
 
 app.LineView = Backbone.View.extend({
   tagName: 'path', 
-  className: 'line red noFill thicker', 
+  className: 'line red noFill thin',
 
   initialize: function(options) {
     //initialize the view with the data from LineModel, append it to parent container
     //TODO refactor into 1 render
     this.render(options);
     this.renderPath();
-
     //listen for changes on the model to re-render line
     this.model.on('change', this.renderPath, this);
-  }, 
+  },
 
   //d3 line rendering logic
   svgLine: d3.svg.line()
@@ -23,10 +22,15 @@ app.LineView = Backbone.View.extend({
   .y(function(d) { return d[1]; })
   .interpolate('basis'),
 
+  changeColor: function(color) {
+    this.color = color;
+  },
+
   render: function(options) {
     this.d3 = options.container
     .append(this.tagName)
     .datum(this.model.get('coordinates'))
+    // .attr('style', 'stroke: ' + this.model.get('stroke') + '; fill: ' + this.model.get('fill') + '; stroke-width: ' + this.model.get('stroke-width')
     .attr('class', this.className);
   },
 
