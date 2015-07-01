@@ -54,6 +54,10 @@ app.router = Backbone.Router.extend({
     new app.AuthView({model: app.AuthModel });
   },
   logout: function () {
+    if(!app.loggedIn) { 
+      app.router.prototype.navigate('/auth', { trigger : true });
+      return;
+    }
     $('.container').empty();
     new app.LogoutView({model: app.LogoutModel });
   }
