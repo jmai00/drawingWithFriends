@@ -12,16 +12,7 @@ app.AuthView = Backbone.View.extend({
       <button>Go</button>     \
       <span class="error"></span> \
     </form>     \
-    <span class="success" onsubmit="return false;" style="display: none;">   \
-      <h1>Success!</h1>   \
-      <form class="signout">   \
-          <button>Log Out</button>   \
-      </form>   \
-    </span>   \
   '),
-  // template_logout: _.template(' \
-
-  // '),
   render: function () {
     var el = this.$el;
     el.html(this.template); 
@@ -44,25 +35,12 @@ app.AuthView = Backbone.View.extend({
         url: '/auth',
         data: body
       }).success(function (response) {
-        el.find('.auth').hide();
-        el.find('.success').show();
+        app.router.prototype.navigate('/logout', { trigger : true });
       }).error(function(error) {
         el.find('.error').text(error.statusText).show();
       });
 
     }); // end auth on submit
 
-    el.find('.signout').on('submit', function () {
-      $.ajax({
-        method: 'GET',
-        url: 'auth/signout'
-      }).success(function () {
-        el.find('.auth').show();
-        el.find('.success').hide();
-        app.router.prototype.navigate('/', { trigger : true });
-      }).error(function (error) {
-        throw error;
-      });
-    }); // end signout on submit
   }
 });

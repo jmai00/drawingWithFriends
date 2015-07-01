@@ -6,17 +6,12 @@ app.router = Backbone.Router.extend({
     'draw' : 'draw',
     'gallery' : 'gallery',
     'gallery/:page' : 'gallery', //TODO ????
-    'auth' : 'auth'
+    'auth' : 'auth',
+    'logout' : 'logout'
   },
   initialize: function(){
     this.appModel = new app.AppModel(); //the 'app' is the drawing portion of the app
   },
-  // before: {
-  //   '^auth': function () {
-  //     console.log('before auth');
-  //     return true;
-  //   }
-  // },
   home : function(){
     //TODO refactor all these container emptys
     $('.container').empty();
@@ -52,6 +47,10 @@ app.router = Backbone.Router.extend({
   auth: function () {
     $('.container').empty();
     new app.AuthView({model: app.AuthModel });
+  },
+  logout: function () {
+    $('.container').empty();
+    new app.LogoutView({model: app.LogoutModel });
   }
 });
 

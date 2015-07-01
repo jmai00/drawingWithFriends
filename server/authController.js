@@ -27,7 +27,7 @@ var controller = {
     console.log('signout')
     req.session.destroy(function() {
       console.log('destroy callback and redirect')
-      res.status(301).redirect('/#draw');
+      res.send();
     });
   },
   signup: function (req, res, next) {
