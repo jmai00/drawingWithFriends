@@ -11,6 +11,12 @@ app.router = Backbone.Router.extend({
   initialize: function(){
     this.appModel = new app.AppModel(); //the 'app' is the drawing portion of the app
   },
+  // before: {
+  //   '^auth': function () {
+  //     console.log('before auth');
+  //     return true;
+  //   }
+  // },
   home : function(){
     //TODO refactor all these container emptys
     $('.container').empty();
@@ -48,3 +54,4 @@ app.router = Backbone.Router.extend({
     new app.AuthView({model: app.AuthModel });
   }
 });
+

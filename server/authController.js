@@ -10,7 +10,6 @@ var controller = {
        res.status(401).send({error: "Unknown user"});
      }
      else {
-      debugger
        user.comparePassword(password, function(match){
          if( match) {
            req.session.regenerate(function (err) {
@@ -25,9 +24,11 @@ var controller = {
     });
   },
   signout: function (req, res, next) {
+    console.log('signout')
     req.session.destroy(function() {
-      res.redirect('/');
-    })
+      console.log('destroy callback and redirect')
+      res.status(301).redirect('/#draw');
+    });
   },
   signup: function (req, res, next) {
     var body = req.body;
