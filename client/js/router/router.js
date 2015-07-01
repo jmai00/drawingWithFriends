@@ -45,6 +45,11 @@ app.router = Backbone.Router.extend({
     this.picturesView = new app.PicturesView({collection: this.picturesCollection});
   },
   auth: function () {
+    if(app.loggedIn) { 
+      app.router.prototype.navigate('/logout', { trigger : true });
+      return;
+    }
+    
     $('.container').empty();
     new app.AuthView({model: app.AuthModel });
   },

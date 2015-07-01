@@ -22,6 +22,7 @@ app.LogoutView = Backbone.View.extend({
         method: 'GET',
         url: 'auth/signout'
       }).success(function () {
+        app.loggedIn = false;
         app.router.prototype.navigate('/auth', { trigger : true });
       }).error(function (error) {
         throw error;

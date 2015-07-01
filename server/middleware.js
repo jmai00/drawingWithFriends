@@ -1,7 +1,7 @@
 var session = require('express-session');
 var sessionOptions = {
   path: '/',
-  httpOnly: true,
+  // httpOnly: true,
   secure: false,
   secret: 'drawing',
   cookie: { maxAge: 60000, secure: false },

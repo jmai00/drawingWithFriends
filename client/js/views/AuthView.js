@@ -35,6 +35,7 @@ app.AuthView = Backbone.View.extend({
         url: '/auth',
         data: body
       }).success(function (response) {
+        app.loggedIn = true;
         app.router.prototype.navigate('/logout', { trigger : true });
       }).error(function(error) {
         el.find('.error').text(error.statusText).show();
