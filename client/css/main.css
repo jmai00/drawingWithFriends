@@ -7,9 +7,7 @@ body{
   font-weight: 300;
   color: #222;
 }
-h1 {
-  font-weight: lighter;
-}
+
 a {
   text-decoration: none;
   color: #222;
@@ -341,13 +339,6 @@ a {
   border: 3px solid #ccccff;
 }
 
-nav{
-  float: left;
-  width: 150px;
-  text-align: center;
-  margin: 5px;
-  margin-right: 20px;
-}
 .container{
   float: left;
   padding: 3px;
@@ -360,8 +351,38 @@ nav{
   width:500px;
   background-color: #fff;
 }
+
+.titleContainer {
+  height: 50px;
+  margin: 0;
+}
+
+h1 {
+  font-weight: lighter;
+  display: inline-block;
+  margin: 0;
+}
+
+nav{
+  float: left;
+  width: 100%;
+  margin: 0;
+  height: 50px;
+  /*left: -33%;*/
+  /*position: fixed;*/
+  /*text-align: center;*/
+  /*margin: 5px;*/
+  /*margin-left: -20%;*/
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
 li {
   list-style: none;
+  text-align: center;
 }
 
 li.pic h4 {
@@ -375,33 +396,30 @@ svg {
 }
 
 nav li{
-  border-top: 1px solid #333;
-  /*padding:10px 5px;*/
+  border: 1px solid #333;
+  /*width: 140px;*/
+  border-radius: 3px;
+  display: inline-block;
+  padding:10px 5px;
 }
-nav li a{
-  padding: 10px;
-  display: block;
-}
+
 nav li a:hover {
   color: #fff;
 }
 nav li:hover{
   background-color: #ccccff;
 }
-nav li:first-child{
-  border: 0;
-}
-/*.color-picker{*/
-  /*padding: 0;*/
-  /*margin: 3px;*/
-/*}*/
-/*select{*/
-  /*margin-left: 15px;*/
-  /*margin-bottom: 5px;*/
-/*}*/
+
 header{
   font-size: 18px;
-  margin-left: 250px;
+  /*margin-left: 250px;*/
+}
+
+.createNewRoom {
+  border: 1px solid #333;
+  border-radius: 3px;
+  margin-right: 5px;
+  display: inline;
 }
 
 /* timer styling */
