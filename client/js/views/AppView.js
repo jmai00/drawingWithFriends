@@ -4,8 +4,9 @@
 var app = app || {};
 
 app.AppView = Backbone.View.extend({
-  initialize: function() {
-     this.appContainer = '.container';
+  initialize: function(options) {
+     // this.appContainer = '.container';
+     this.appContainer = options.element;
      this.pictureView = new app.PictureView({
        model: this.model.pictureModel,
        container: d3.select(this.appContainer) //TODO this is a little different compared to below rendering for now cuz d3

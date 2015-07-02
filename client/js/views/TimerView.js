@@ -7,6 +7,7 @@ app.TimerView = Backbone.View.extend({
   className: 'timerContainer',
 
   initialize: function() {
+    this.render();
     this.model.on('change:time', this.render, this);
   },
 

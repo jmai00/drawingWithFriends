@@ -23,7 +23,19 @@ app.RoomView = Backbone.View.extend({
     var users = el.find('.users');
     var chat = el.find('.chat');
 
-    draw.html( new app.AppView({model: this.appModel}) );
+    var pictureView = new app.PictureView({
+      model: new app.PictureModel(),
+      container: d3.select('.draw'),
+      element: '.draw' //TODO this is a little different compared to below rendering for now cuz d3
+    });
+
+    var timerView = new app.TimerView({
+      model: new app.TimerModel()
+    });
+
+    $('.draw').append(pictureView).append(timerView.render());
+
+    // draw.html(drawView);
   }
 });
 

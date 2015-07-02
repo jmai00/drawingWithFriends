@@ -17,8 +17,8 @@ app.router = Backbone.Router.extend({
   home : function(){
     //TODO refactor all these container emptys
     $('.container').empty();
-    // $('.toolbar').empty();
-    //$('.color-picker').empty();
+    $('.toolbar').empty();
+    ('.color-picker').empty();
     var homeView = new app.HomeView();
   },
   draw : function () {
@@ -30,7 +30,7 @@ app.router = Backbone.Router.extend({
       //this.appView.remove();
       //debugger;
     //}
-    this.appView = new app.AppView({model: this.appModel});
+    this.appView = new app.AppView({model: this.appModel, element: '.container' });
     //render the view when user goes to draw tab
     //var picture = new app.PictureView({
         //model: data,
