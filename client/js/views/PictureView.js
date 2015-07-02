@@ -5,8 +5,10 @@ var app = app || {};
 app.PictureView = Backbone.View.extend({
   tagName: 'svg',
   className: 'canvas',
+  // colorPicker:  new app.ColorPickerView(),
 
   initialize: function(options){
+    this.colorPickerView = new app.ColorPickerView();
     this.render(options);
     //TODO another listener for empty lines = delete all lineview subviews
     //we currently have no way to delete lineviews added
@@ -22,6 +24,7 @@ app.PictureView = Backbone.View.extend({
     this.model.get('lines').on('add', function(line) {
       this.renderLine(line);
     }, this);
+
   },
 
   renderLine: function(line) {
@@ -42,36 +45,21 @@ app.PictureView = Backbone.View.extend({
   },
 
   render: function(options) {
-    // Empty Toolbar, Then Create Elements
-    $('.toolbar').empty();
-    $('.toolbar').append('<div class="selectBlack"></div>');
-    $('.toolbar').append('<div class="selectWhite"></div>');
-    $('.toolbar').append('<div class="selectGray"></div>');
-    $('.toolbar').append('<div class="selectDarkGray"></div>');
-    $('.toolbar').append('<div class="selectRed"></div>');
-    $('.toolbar').append('<div class="selectDarkRed"></div>');
-    $('.toolbar').append('<div class="selectGreen"></div>');
-    $('.toolbar').append('<div class="selectDarkGreen"></div>');
-    $('.toolbar').append('<div class="selectBlue"></div>');
-    $('.toolbar').append('<div class="selectDarkBlue"></div>');
-    $('.toolbar').append('<div class="selectCyan"></div>');
-    $('.toolbar').append('<div class="selectDarkCyan"></div>');
-    $('.toolbar').append('<div class="selectYellow"></div>');
-    $('.toolbar').append('<div class="selectDarkYellow"></div>');
-    $('.toolbar').append('<div class="selectPurple"></div>');
-    $('.toolbar').append('<div class="selectDarkPurple"></div>');
-    $('.toolbar').append('<div class="selectBrown"></div>');
-    $('.toolbar').append('<div class="selectDarkBrown"></div>');
-    $('.toolbar').append('<div class="selectThicknessWrapper"><div class="selectThicknessInner"><div class="selectThinner"></div></div><div class="selectThicknessInner"><div class="selectThin"></div></div><div class="selectThicknessInner"><div class="selectThick"></div></div><div class="selectThicknessInner"><div class="selectThicker"></div></div></div>');
-    $('.toolbar div').on('click', function () {
-      console.log( $(this)[0] );
-    });
+    // this.colorPickerView.render()
+    if (this.toolbar === undefined) {
+       this.toolbar = $(options.container[0]).append(this.colorPickerView.$el);
+      // $(options.container[0]).find('.toolbar').remove();
+    }
+   
+
+    debugger;
     //TODO all these d3 elems could probably be refactored to be more like $el--attempted but views didn't render correctly
     //for line reset render: if the svg element is present, remove it
     if (this.d3) {
       //this.d3.remove();
       $(options.container[0]).find('svg').remove();
     }
+    // append(this.colorPickerView.el);
 
     this.d3 = options.container
     .append(this.tagName)

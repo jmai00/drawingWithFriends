@@ -4,7 +4,7 @@
 var app = app || {};
 
 app.LineView = Backbone.View.extend({
-  tagName: 'path', 
+  tagName: 'path',
   className: 'line red noFill thin',
 
   initialize: function(options) {
@@ -22,15 +22,23 @@ app.LineView = Backbone.View.extend({
   .y(function(d) { return d[1]; })
   .interpolate('basis'),
 
-  changeColor: function(color) {
-    this.color = color;
-  },
+  // changeColor: function(color) {
+  //   this.model.set('stroke', color);
+  // },
+
+  // changeFill: function(color) {
+  //   this.model.set('fill', color);
+  // },
+
+  // changeWidth: function(width) {
+  //   this.model.set('stroke_width', width);
+  // },
 
   render: function(options) {
     this.d3 = options.container
     .append(this.tagName)
     .datum(this.model.get('coordinates'))
-    // .attr('style', 'stroke: ' + this.model.get('stroke') + '; fill: ' + this.model.get('fill') + '; stroke-width: ' + this.model.get('stroke-width')
+    .attr('style', 'stroke: ' + this.model.get('stroke') + '; fill: ' + this.model.get('fill') + '; stroke-width: ' + this.model.get('stroke_width'))
     .attr('class', this.className);
   },
 
