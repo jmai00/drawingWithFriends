@@ -6,6 +6,8 @@ app.PictureModel = Backbone.Model.extend({
   //defaults: {
     //container: d3.select('body')
   //},
+  currentColor: '#000000',
+
   initialize: function() {
     this.set('lines', new app.LineCollection());
   },
@@ -14,7 +16,14 @@ app.PictureModel = Backbone.Model.extend({
     //console.log('drag started');
     //this.set('activeLine', new app.LineModel({id: idHash()}));
     this.set('activeLine', new app.LineModel());
+    // console.log(this.)
+    this.get('activeLine').set('stroke', this.get('currentColor'));
     this.get('lines').add(this.get('activeLine'));
+  },
+
+  changeColor: function(color) {
+    console.log('called changecolor to ', color);
+    this.set('currentColor', color);
   },
 
   drag: function(mouseCoord) {
