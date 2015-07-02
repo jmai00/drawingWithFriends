@@ -36,7 +36,7 @@ io.on('connection', function(socket) {
   socket.on('user moved', function(data) {
     //console.log('a user drew. their data: ', data); //TODO send JSON.stringify(model) as data to server from client, cleaner?
 
-    Lines.add({id: data.id, coordinates: data.coordinates}, {merge: true});
+    Lines.add({id: data.id, coordinates: data.coordinates, fill: data.fill, stroke: data.stroke, stroke_width: data.stroke_width}, {merge: true});
 
     //TODO move all timer logic to another file?
     timer = util.updateTimer(io, timer, function() { //cb to fire when timer ends

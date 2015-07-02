@@ -69,7 +69,7 @@ bookshelf.knex.schema.hasTable('Join_Room').then(function(exists) {
 bookshelf.knex.schema.hasTable('Line').then(function (exists) {
   if (!exists) {
     bookshelf.knex.schema.createTable('Line', function (line) {
-      line.integer('id').unsigned().primary();
+      line.increments('id').unsigned().primary();
       line.integer('picture_id').unsigned().references('Picture.id');
       line.text('coordinates'); //json
       line.string('fill', 7);
