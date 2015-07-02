@@ -16,6 +16,7 @@ var multer = require('multer');
 module.exports = function (app, express) { 
 
   var authRoutes = express.Router();
+  var userRoutes = express.Router();
 
   app.use(express.static(__dirname + '/../client'));
   app.use(session(sessionOptions));
@@ -26,6 +27,8 @@ module.exports = function (app, express) {
 
 
   app.use('/auth', authRoutes);
+  app.use('/user', userRoutes);
 
   require('./authRoutes')(authRoutes);  
+  require('./userRoutes')(userRoutes);  
 };

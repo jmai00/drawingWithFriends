@@ -9,8 +9,8 @@ app.AuthView = Backbone.View.extend({
       <label><input type="checkbox" name="createNewAccount"> Create new account </label> \
       <input type="text" name="username" placeholder="username">     \
       <input type="password" name="password" placeholder="password">     \
-      <input type="submit" value="Submit">     \
       <span class="error"></span> \
+      <input type="submit" value="Submit">     \
     </form>     \
   '),
   render: function () {
@@ -36,9 +36,12 @@ app.AuthView = Backbone.View.extend({
         data: body
       }).success(function (response) {
         app.loggedIn = true;
+        app.username = response.username;
         app.router.prototype.navigate('/logout', { trigger : true });
       }).error(function(error) {
-        el.find('.error').text(error.statusText).show();
+        var responseTextObject = JSON.parse(error.responseText);
+        var responseText = responseTextObject.error;
+        el.find('.error').text(responseText).show();
       });
 
     }); // end auth on submit

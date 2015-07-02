@@ -28,7 +28,6 @@ app.router = Backbone.Router.extend({
       //this.appView.remove();
       //debugger;
     //}
-    debugger
     this.appView = new app.AppView({model: this.appModel});
     //render the view when user goes to draw tab
     //var picture = new app.PictureView({

@@ -17,6 +17,9 @@ var util = require('./utils'); //TODO maybe as an injection like routes
 // require middleware
 require('./middleware')(app, express);
 
+// recent user info
+var recentUsers = require('./recentUsers');
+
 var timer = null;
 
 io.on('connection', function(socket) {
@@ -36,13 +39,15 @@ io.on('connection', function(socket) {
   socket.on('user moved', function(data) {
     //console.log('a user drew. their data: ', data); //TODO send JSON.stringify(model) as data to server from client, cleaner?
 
+    var username = data.username;
+    recentUsers[username] = new Date();
+
     Lines.add({id: data.id, coordinates: data.coordinates, fill: data.fill, stroke: data.stroke, stroke_width: data.stroke_width}, {merge: true});
 
     //TODO move all timer logic to another file?
     timer = util.updateTimer(io, timer, function() { //cb to fire when timer ends
       util.savePictureAndReset(io, function() { //cb to fire upon successful saving/resetting
-      timer = null; 
-
+        timer = null; 
       });
     });
 

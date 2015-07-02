@@ -6,7 +6,7 @@ app.LogoutView = Backbone.View.extend({
   },
   template: _.template('  \
     <span class="success" onsubmit="return false;">   \
-      <h1>Success!</h1>   \
+      <h1>You are logged in</h1>   \
       <form class="signout">   \
           <button>Log Out</button>   \
       </form>   \
