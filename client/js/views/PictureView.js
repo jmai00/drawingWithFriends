@@ -63,13 +63,13 @@ app.PictureView = Backbone.View.extend({
     if (this.toolbar === undefined) {
        this.toolbar = $(options.container[0]).append(this.colorPickerView.$el);
       // $(options.container[0]).find('.toolbar').remove();
-      // $('.toolbar>div.selectColor').on('click', function () {
-      //   $('*').removeClass('selected');
-      //   $(this).addClass('selected');
-      //   currentColor = context.colors[$(this).attr('class').split(" ")[1]];
-      //   // console.log(currentColor);
-      //   context.model.changeColor(currentColor);
-      // });
+      $('.toolbar>div.selectColor').on('click', function () {
+        $('*').removeClass('selected');
+        $(this).addClass('selected');
+        // currentColor = context.colors[$(this).attr('class').split(" ")[1]];
+        // console.log(currentColor);
+        // context.model.changeColor(currentColor);
+      });
 
     }
    
