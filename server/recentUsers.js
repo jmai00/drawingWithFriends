@@ -5,13 +5,13 @@ var cleanRecentUsers = function () {
   var recency;
 
   for(var user in recentUsers) {
-    recency = recentUsers[user]
+    recency = recentUsers[user];
     if(time - recency > 300000) {
-      delete recenctUsers[user];
+      delete recentUsers[user];
     }
   }
-}
+};
 
-setTimeout(cleanRecentUsers, 300000)
+setTimeout(cleanRecentUsers, 300000);
 
 module.exports = recentUsers;
