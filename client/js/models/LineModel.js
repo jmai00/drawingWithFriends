@@ -6,16 +6,13 @@ app.LineModel = Backbone.Model.extend({
 
   defaults: {
     coordinates: [],
-    // fill: 'none',
-    // stroke: '#000000',
-    // stroke_width: '4',
+    fill: 'none',
+    stroke: '#000000',
+    stroke_width: '4',
     id: null //don't really need this explicitly. for clarity only
   },
   initialize: function() {
     this.set('id', guid());
-    this.set('fill', 'none');
-    this.set('stroke', '#000000');
-    this.set('stroke_width', '4');
   },
 
   updateLine: function(coord) {

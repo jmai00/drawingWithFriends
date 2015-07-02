@@ -43,8 +43,9 @@ app.PicturesView = Backbone.View.extend({
       _.each(picture, function(line) {
         //console.log(JSON.parse(line));
         var line = svg.append('path')
-        .datum(JSON.parse(line))
-        .attr('class', 'line');
+        .datum(JSON.parse(line.coordinates))
+        .attr('class', 'line')
+        .attr('style', 'stroke: ' + line.stroke + '; fill: ' + line.fill + '; stroke-width: ' + line.stroke_width);
         line.attr('d', this.svgLine);
       }, this);
     }, this);
