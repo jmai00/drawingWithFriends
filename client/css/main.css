@@ -454,3 +454,58 @@ span.error {
   margin-bottom: 12px;
 }
 
+/*RoomView Layout*/
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  display: block;
+}
+
+.container {
+  width: 100%;
+}
+
+.roomView * {
+  outline: 1px dashed red;
+}
+
+.draw {
+  width: 600px;
+  height: 600px;;
+  float: left;
+  margin: 0 50px;
+}
+
+.users {
+  width: 200px;
+  float: left;
+}
+
+
+.chat {
+  clear: both;
+  height: 400px;
+  width: 800px;
+  position: relative;
+  top: 50px;
+  margin: 0 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

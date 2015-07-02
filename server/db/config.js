@@ -3,9 +3,9 @@ var knex = require('knex')({
   connection : { //TODO edit this to depend on ENV variable 'production' or not
     host : '127.0.0.1',
     user : 'root',
-    //password : 'brian',
-    database : 'drawly', //for now, or making a schema to make a custom local db/open sql to make
-    charset : 'utf8',
+    // password : 'brian',
+    database: 'drawly',
+    charset : 'utf8'
   }
 });
 

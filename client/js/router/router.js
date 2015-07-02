@@ -8,7 +8,8 @@ app.router = Backbone.Router.extend({
     'gallery' : 'gallery',
     // 'gallery/:page' : 'gallery', //TODO ????
     'auth' : 'auth',
-    'logout' : 'logout'
+    'logout' : 'logout',
+    'room/:id' : 'room'
   },
   initialize: function(){
     this.appModel = new app.AppModel(); //the 'app' is the drawing portion of the app
@@ -16,8 +17,8 @@ app.router = Backbone.Router.extend({
   home : function(){
     //TODO refactor all these container emptys
     $('.container').empty();
-    // $('.toolbar').empty();
-    //$('.color-picker').empty();
+    $('.toolbar').empty();
+    ('.color-picker').empty();
     var homeView = new app.HomeView();
   },
   draw : function () {
@@ -29,7 +30,7 @@ app.router = Backbone.Router.extend({
       //this.appView.remove();
       //debugger;
     //}
-    this.appView = new app.AppView({model: this.appModel});
+    this.appView = new app.AppView({model: this.appModel, element: '.container' });
     //render the view when user goes to draw tab
     //var picture = new app.PictureView({
         //model: data,
@@ -64,6 +65,9 @@ app.router = Backbone.Router.extend({
     }
     $('.container').empty();
     new app.LogoutView({model: app.LogoutModel });
+  },
+  room: function (id) {
+    new app.RoomView();
   }
 });
 
