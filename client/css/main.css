@@ -1,11 +1,11 @@
 /* css/main.css */
 body{
-	height: 100%;
-	width: 100%;
-	padding: 0px;
-	font-family: 'Helvetica Neue', sans-serif;
-	font-weight: 300;
-	color: #222;
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+  color: #222;
 }
 h1 {
   font-weight: lighter;
@@ -99,9 +99,10 @@ a {
 .toolbar {
   width: 80px;
   text-align: center;
-  margin: 5px;
-  margin-right: 20px;
+  margin: 60px 20px 0px 0px;
   padding-left: 50px;
+  float: left;
+  z-index: 1000;
 }
 
 .thinner {
@@ -349,16 +350,17 @@ nav{
 .container{
   float: left;
   padding: 3px;
+  width: 700px;
 }
 .canvas {
-	float:left;
-	border: 3px solid #333;
-	height:500px;
-	width:500px;
-	background-color: #fff;
+  float:left;
+  border: 3px solid #333;
+  height:500px;
+  width:500px;
+  background-color: #fff;
 }
 li {
-	list-style: none;
+  list-style: none;
 }
 
 li.pic h4 {
@@ -372,8 +374,8 @@ svg {
 }
 
 nav li{
-	border-top: 1px solid #333;
-	/*padding:10px 5px;*/
+  border-top: 1px solid #333;
+  /*padding:10px 5px;*/
 }
 nav li a{
   padding: 10px;
@@ -389,24 +391,25 @@ nav li:first-child{
   border: 0;
 }
 /*.color-picker{*/
-	/*padding: 0;*/
-	/*margin: 3px;*/
+  /*padding: 0;*/
+  /*margin: 3px;*/
 /*}*/
 /*select{*/
-	/*margin-left: 15px;*/
-	/*margin-bottom: 5px;*/
+  /*margin-left: 15px;*/
+  /*margin-bottom: 5px;*/
 /*}*/
 header{
-	font-size: 18px;
+  font-size: 18px;
   margin-left: 250px;
 }
 
 /* timer styling */
 .timerContainer h2 {
   margin: 0;
-	font-weight: 200;
-	font-size: 3em;
+  font-weight: 200;
+  font-size: 3em;
 }
+
 
 /*Login Form Styling*/
 form.auth {
