@@ -8,7 +8,8 @@ app.router = Backbone.Router.extend({
     'gallery' : 'gallery',
     // 'gallery/:page' : 'gallery', //TODO ????
     'auth' : 'auth',
-    'logout' : 'logout'
+    'logout' : 'logout',
+    'room/:id' : 'room'
   },
   initialize: function(){
     this.appModel = new app.AppModel(); //the 'app' is the drawing portion of the app
@@ -64,6 +65,9 @@ app.router = Backbone.Router.extend({
     }
     $('.container').empty();
     new app.LogoutView({model: app.LogoutModel });
+  },
+  room: function (id) {
+    new app.RoomView();
   }
 });
 
