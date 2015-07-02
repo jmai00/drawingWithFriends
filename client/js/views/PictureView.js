@@ -49,10 +49,13 @@ app.PictureView = Backbone.View.extend({
     if (this.toolbar === undefined) {
        this.toolbar = $(options.container[0]).append(this.colorPickerView.$el);
       // $(options.container[0]).find('.toolbar').remove();
+      $('.toolbar div').on('click', function () {
+        $('*').removeClass('selected')
+        $(this).addClass('selected');
+        console.log( $(this) );
+      });
     }
    
-
-    debugger;
     //TODO all these d3 elems could probably be refactored to be more like $el--attempted but views didn't render correctly
     //for line reset render: if the svg element is present, remove it
     if (this.d3) {

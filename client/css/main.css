@@ -337,9 +337,10 @@ a {
   background-color: #ccccff;
 }
 
-.selectedColor {
+.selected {
   border: 3px solid #ccccff;
 }
+
 nav{
   float: left;
   width: 150px;
@@ -409,7 +410,6 @@ header{
   font-weight: 200;
   font-size: 3em;
 }
-
 
 /*Login Form Styling*/
 form.auth {
