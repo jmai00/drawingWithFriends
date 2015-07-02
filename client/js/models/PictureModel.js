@@ -6,9 +6,11 @@ app.PictureModel = Backbone.Model.extend({
   //defaults: {
     //container: d3.select('body')
   //},
-  selectedColor: '#000000',
-  selectedWidth: '4',
-  selectedFill: 'none',
+  defaults: {
+    selectedColor: '#000000',
+    selectedWidth: '4',
+    selectedFill: 'none'
+  },
 
   initialize: function() {
     this.set('lines', new app.LineCollection());
@@ -25,7 +27,7 @@ app.PictureModel = Backbone.Model.extend({
     this.get('lines').add(this.get('activeLine'));
   },
 
-  changeColor: function(color) {
+  changeColor: function(color) { 
     this.set('selectedColor', color);
   },
 
