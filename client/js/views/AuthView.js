@@ -36,9 +36,9 @@ app.AuthView = Backbone.View.extend({
         data: body
       }).success(function (response) {
         app.loggedIn = true;
+        app.username = response.username;
         app.router.prototype.navigate('/logout', { trigger : true });
       }).error(function(error) {
-        debugger
         var responseTextObject = JSON.parse(error.responseText);
         var responseText = responseTextObject.error;
         el.find('.error').text(responseText).show();

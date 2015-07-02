@@ -40,7 +40,7 @@ var controller = {
         }).save().then(function(savedUser){
           req.session.regenerate(function (err) {
             req.session.userId = savedUser.id;
-            res.send();
+            res.send(savedUser);
           });
         });
       } 

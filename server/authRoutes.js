@@ -10,4 +10,5 @@ module.exports = function (auth) {
       }
     })
     .get('/signout', controller.signout)
+    
 }
