@@ -5,7 +5,27 @@ var app = app || {};
 app.PictureView = Backbone.View.extend({
   tagName: 'svg',
   className: 'canvas',
-  // colorPicker:  new app.ColorPickerView(),
+  colors:  {
+    selectBlack: '#000000',
+    selectWhite: '#FFFFFF',
+    selectGray: '#AAAAAA',
+    selectDarkGray: '#555555',
+    selectRed: '#FF0000',
+    selectDarkRed: '#8B0000',
+    selectGreen: '#00FF00',
+    selectDarkGreen: '#008B00',
+    selectBlue: '#0000FF',
+    selectDarkBlue: '#00008B',
+    selectCyan: '#00FFFF',
+    selectDarkCyan: '#008B8B',
+    selectYellow: '#FFFF00',
+    selectDarkYellow: '#8B8B00',
+    selectPurple: '#FF00FF',
+    selectDarkPurple: '#8B008B',
+    selectBrown: '#FFDAB9',
+    selectDarkBrown: '#8B4513'
+
+  },
 
   initialize: function(options){
     this.colorPickerView = new app.ColorPickerView();
@@ -44,16 +64,23 @@ app.PictureView = Backbone.View.extend({
     return d3.mouse(this.d3.node());
   },
 
+
+
   render: function(options) {
     // this.colorPickerView.render()
+    var currentColor = '#000000';
+    var context = this;
     if (this.toolbar === undefined) {
        this.toolbar = $(options.container[0]).append(this.colorPickerView.$el);
       // $(options.container[0]).find('.toolbar').remove();
-      $('.toolbar div').on('click', function () {
-        $('*').removeClass('selected')
+      $('.toolbar>div.selectColor').on('click', function () {
+        $('*').removeClass('selected');
         $(this).addClass('selected');
-        console.log( $(this) );
+        currentColor = context.colors[$(this).attr('class').split(" ")[1]];
+        // console.log(currentColor);
+        context.model.changeColor(currentColor);
       });
+
     }
    
     //TODO all these d3 elems could probably be refactored to be more like $el--attempted but views didn't render correctly
