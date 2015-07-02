@@ -26,8 +26,15 @@ app.LineCollection = Backbone.Collection.extend({
     if (data.coordinates) {
       if (otherLine) {
         otherLine.set('coordinates', data.coordinates);
+        otherLine.set('fill', data.fill);
+        otherLine.set('stroke', data.stroke);
+        otherLine.set('stroke_width', data.stroke_width);
       } else { //another user's line we haven't seen yet (they just started making the line)
-        var newline = new app.LineModel({id: data.id, coordinates: data.coordinates});
+        var newline = new app.LineModel({id: data.id, 
+                                         coordinates: data.coordinates, 
+                                         fill: data.fill,
+                                         stroke: data.stroke,
+                                         stroke_width: data.stroke_width });
 
         this.add(newline);
       }

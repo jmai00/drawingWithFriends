@@ -19,7 +19,7 @@ app.PicturesCollection = Backbone.Collection.extend({
 			if ( !this.modelData[line.picture_id] ){
 			 	this.modelData[line.picture_id] = [];
 			}
-			this.modelData[line.picture_id].push(line.coordinates);
+			this.modelData[line.picture_id].push(line);
 		}, this);
     this.trigger('processed'); //listener to bubbleup to view
     //do something like the below but without the event listeners/'lite' version

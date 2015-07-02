@@ -5,27 +5,6 @@ var app = app || {};
 app.PictureView = Backbone.View.extend({
   tagName: 'svg',
   className: 'canvas',
-  colors:  {
-    selectBlack: '#000000',
-    selectWhite: '#FFFFFF',
-    selectGray: '#AAAAAA',
-    selectDarkGray: '#555555',
-    selectRed: '#FF0000',
-    selectDarkRed: '#8B0000',
-    selectGreen: '#00FF00',
-    selectDarkGreen: '#008B00',
-    selectBlue: '#0000FF',
-    selectDarkBlue: '#00008B',
-    selectCyan: '#00FFFF',
-    selectDarkCyan: '#008B8B',
-    selectYellow: '#FFFF00',
-    selectDarkYellow: '#8B8B00',
-    selectPurple: '#FF00FF',
-    selectDarkPurple: '#8B008B',
-    selectBrown: '#FFDAB9',
-    selectDarkBrown: '#8B4513'
-
-  },
 
   initialize: function(options){
     this.colorPickerView = new app.ColorPickerView();
@@ -43,6 +22,17 @@ app.PictureView = Backbone.View.extend({
     }.bind(this, options));
     this.model.get('lines').on('add', function(line) {
       this.renderLine(line);
+    }, this);
+
+    this.colorPickerView.on('selectedColor', function(event) {
+      this.model.changeColor(event);
+    }, this);
+
+    this.colorPickerView.on('selectedFill', function(event) {
+      this.model.changeFill(event);
+    }, this);
+    this.colorPickerView.on('selectedWidth', function(event) {
+      this.model.changeWidth(event);
     }, this);
 
   },
@@ -73,13 +63,13 @@ app.PictureView = Backbone.View.extend({
     if (this.toolbar === undefined) {
        this.toolbar = $(options.container[0]).append(this.colorPickerView.$el);
       // $(options.container[0]).find('.toolbar').remove();
-      $('.toolbar>div.selectColor').on('click', function () {
-        $('*').removeClass('selected');
-        $(this).addClass('selected');
-        currentColor = context.colors[$(this).attr('class').split(" ")[1]];
-        // console.log(currentColor);
-        context.model.changeColor(currentColor);
-      });
+      // $('.toolbar>div.selectColor').on('click', function () {
+      //   $('*').removeClass('selected');
+      //   $(this).addClass('selected');
+      //   currentColor = context.colors[$(this).attr('class').split(" ")[1]];
+      //   // console.log(currentColor);
+      //   context.model.changeColor(currentColor);
+      // });
 
     }
    

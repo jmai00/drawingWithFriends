@@ -3,9 +3,38 @@ var app = app || {};
 app.ColorPickerView = Backbone.View.extend({
   tagName: 'div',
   className: 'toolbar',
-
+  colors:  {
+    selectBlack: '#000000',
+    selectWhite: '#FFFFFF',
+    selectGray: '#AAAAAA',
+    selectDarkGray: '#555555',
+    selectRed: '#FF0000',
+    selectDarkRed: '#8B0000',
+    selectGreen: '#00FF00',
+    selectDarkGreen: '#008B00',
+    selectBlue: '#0000FF',
+    selectDarkBlue: '#00008B',
+    selectCyan: '#00FFFF',
+    selectDarkCyan: '#008B8B',
+    selectYellow: '#FFFF00',
+    selectDarkYellow: '#8B8B00',
+    selectPurple: '#FF00FF',
+    selectDarkPurple: '#8B008B',
+    selectBrown: '#FFDAB9',
+    selectDarkBrown: '#8B4513'
+  },
   events : {
-      "change" :"changed"
+      'click' : function(event) {
+        if (event.target.classList[0] === 'selectColor') {
+          this.trigger("selectedColor", this.colors[event.target.classList[1]]);
+        }
+        else if (event.target.classList[0] === 'selectThinner') {
+          this.trigger("selectedWidth", this.colors[event.target.classList[0]]);
+        }
+        else if (event.target.classList[0] === 'selectFillColor') {
+          this.trigger("selectedFill", this.colors[event.target.classList[0]]);
+        }
+      }
   },
 
   initialize : function() {
