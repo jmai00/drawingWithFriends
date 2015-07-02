@@ -7,8 +7,8 @@ var sessionOptions = {
   cookie: { maxAge: 60000, secure: false },
   maxAge: 60000,
   resave: false,
-  saveUninitializied: false
-}
+  saveUninitialized: false
+};
 
 var bodyParser = require('body-parser');
 var multer = require('multer');
@@ -28,4 +28,4 @@ module.exports = function (app, express) {
   app.use('/auth', authRoutes);
 
   require('./authRoutes')(authRoutes);  
-}
+};
