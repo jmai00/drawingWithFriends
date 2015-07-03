@@ -3,7 +3,7 @@ var knex = require('knex')({
   connection : { //TODO edit this to depend on ENV variable 'production' or not
     host : '127.0.0.1',
     user : 'root',
-    // password : 'brian',
+    password : 'brian',
     database: 'drawly',
     charset : 'utf8'
   }

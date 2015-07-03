@@ -1,9 +1,9 @@
 var app = app || {};
 
 app.UserModel = Backbone.Model.extend({
-  //defaults: {
-    //container: d3.select('body')
-  //},
-  initialize: function() {
+  initialize: function(options) {
+    this.set('name', options.name);
   }
-}
+});
+
+

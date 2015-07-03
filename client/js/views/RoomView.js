@@ -8,6 +8,7 @@ app.RoomView = Backbone.View.extend({
   className: 'roomView',
   initialize: function() {
     this.render();
+    this.on('userUpdate', this.renderUsers, this);
   },
   template: _.template('    \
     <div class="draw">draw</div>    \
@@ -18,24 +19,31 @@ app.RoomView = Backbone.View.extend({
     var el = this.$el;
     el.html(this.template()); 
     $('.container').html(this.el);
-  
-    var draw = el.find('.draw');
+    this.renderUsers();
+    this.renderBoard();
+  },
+  renderUsers: function () {
+    var el = this.$el;
     var users = el.find('.users');
-    var chat = el.find('.chat');
-
+    var usersView = new app.UsersView({ collection: app.Users });
+    var usersElement = usersView.render();
+    $('.users').html(usersElement);
+  },
+  renderBoard: function () {
+    var el = this.$el;
+    var draw = el.find('.draw');
     var pictureView = new app.PictureView({
       model: new app.PictureModel(),
       container: d3.select('.draw'),
-      element: '.draw' //TODO this is a little different compared to below rendering for now cuz d3
+      element: '.draw'
     });
-
     var timerView = new app.TimerView({
       model: new app.TimerModel()
     });
-
     $('.draw').append(pictureView).append(timerView.render());
-
-    // draw.html(drawView);
+  },
+  renderChat: function () {
+    var chat = el.find('.chat');
   }
 });
 
