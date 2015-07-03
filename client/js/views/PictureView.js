@@ -57,23 +57,31 @@ app.PictureView = Backbone.View.extend({
   },
 
   renderUsers: function (options) {
+
+    // var users = $('.users');
+    // this.usersView = new app.UsersView({ collection: app.Users });
+    // var users = this.usersView.render();
+    // console.log(users);
+    // $('.users').prepend('<ul class="usersTitle">Current Users</ul>');
+    // $('.users ul').append(users);
+
+
     var el = this.$el;
     var users = el.find('.users');
-    users.empty();
-    this.usersView = new app.UsersView({ collection: app.Users });
-    $('.users').append($(this.usersView.render().children()));
+    var usersView = new app.UsersView({ collection: app.Users });
+    usersView.render();
+    // var usersElement = usersView.render();
+    console.log(usersView);
+    // $('.users').append(usersElement);
   },
 
   render: function(options) {
-    if (!this.users) {
+    if (this.users === undefined) {
      this.usersView.render();
      this.users = $(options.container[0]).append(this.usersView.$el);
-     $('.users').prepend('<ul class="usersTitle">Current Users</ul>');
+     $('.users').prepend('<div class="usersTitle">Current Users</div>');
     } else {
-      this.renderUsers();
-      // $('.users').empty();
-      // this.usersView.render();
-      // this.users = $(options.container[0]).append(this.usersView.$el);
+      this.usersView.render();
     }
     var currentColor = '#000000';
     if (this.toolbar === undefined) {

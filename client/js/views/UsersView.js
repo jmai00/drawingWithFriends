@@ -3,7 +3,7 @@ var app = app || {};
 app.UsersView = Backbone.View.extend({
   initialize: function() {
   },
-  'tagName': 'div',
+  'tagName': 'ul',
   'className': 'users',
   render: function () {
     var el = this.$el;
