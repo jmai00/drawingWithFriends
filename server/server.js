@@ -74,6 +74,9 @@ io.on('connection', function(socket) {
     socket.emit('users served', recentUsers);
   });
 
+  socket.on('user message', function(data) {
+    socket.broadcast.emit('user message', data);
+  });
 
 });
 
