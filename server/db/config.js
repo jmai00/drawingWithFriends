@@ -1,10 +1,11 @@
 var knex = require('knex')({
   client : 'mysql',
   connection : { //TODO edit this to depend on ENV variable 'production' or not
-    host : '127.0.0.1',
-    user : 'root',
-    // password : 'brian',
-    database: 'drawly',
+    host : process.env.RDS_HOSTNAME || '127.0.0.1',
+    user : process.env.RDS_USERNAME || 'root',
+    password : process.env.RDS_PASSWORD || '',
+    port : process.env.RDS_PORT || null,
+    database: process.env.RDS_DB_NAME || 'drawly',
     charset : 'utf8'
   }
 });

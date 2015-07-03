@@ -1,3 +1,8 @@
+# Database Configuration File
+
+server/db/*.js
+
+
 ### node etc ###
 
 # Logs
@@ -28,4 +33,9 @@ dist/
 node_modules/
 bower_components/
 
-server/db/config.js
+
+# Versions
+*.zip
+
+
+
