@@ -9,6 +9,7 @@ app.PictureView = Backbone.View.extend({
   initialize: function(options){
     this.colorPickerView = new app.ColorPickerView();
     this.usersView = new app.UsersView({ collection: app.Users });
+    this.chatView = new app.ChatView();
 
     app.Users.on('update', this.renderUsers, this);
     this.render(options);
@@ -120,7 +121,10 @@ app.PictureView = Backbone.View.extend({
           }.bind(this))
           .on("dragend", this.model.dragEnded.bind(this.model)));
           //like 'events' hash
+    
+    $(options.container[0]).append(this.chatView.$el);
   }
+
 
 });
 
