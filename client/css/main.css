@@ -61,7 +61,7 @@ a {
 }
 
 .DarkBlue {
-  background-color: #0000FF;
+  background-color: #00008B;
 }
 
 .Cyan {
@@ -94,42 +94,6 @@ a {
 
 .DarkBrown {
   background-color: #8B4513;
-}
-
-.noFill {
-  fill: none;
-}
-
-.blackFill {
-  fill: #222222;
-}
-
-.whiteFill {
-  fill: #FFFFFF;
-}
-
-.redFill {
-  fill: #FF0000;
-}
-
-.greenFill {
-  fill: #00FF00;
-}
-
-.blueFill {
-  fill: #0000FF;
-}
-
-.cyanFill {
-  fill: #00FFFF;
-}
-
-.yellowFill {
-  fill: #FFFF00;
-}
-
-.purpleFill {
-  fill: #FF00FF;
 }
 
 .toolbar {
@@ -378,11 +342,6 @@ a {
   border: 3px solid #ccccff;
 }
 
-.container{
-  float: left;
-  padding: 3px;
-  width: 700px;
-}
 .canvas {
   float:left;
   border: 3px solid #333;
@@ -510,7 +469,7 @@ nav {
 }
 
 .container {
-  width: 100%;
+  width: 800px
 }
 
 .roomView * {
@@ -526,11 +485,18 @@ nav {
 }
 
 .users {
+  border: 3px solid #222222;
   width: 200px;
-  float: left;
+  height: 500px;
+  position: relative;
+  float: right;
+  margin-top: 39px;
+  text-align: center;
 }
 
-
+.usersTitle {
+  border-bottom: 3px solid #222222;
+}
 .chat {
   clear: both;
   height: 400px;
