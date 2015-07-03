@@ -8,7 +8,7 @@ app.RoomView = Backbone.View.extend({
   className: 'roomView',
   initialize: function() {
     this.render();
-    this.on('userUpdate', this.renderUsers, this);
+    app.Users.on('update', this.renderUsers, this);
   },
   template: _.template('    \
     <div class="draw">draw</div>    \
@@ -27,7 +27,7 @@ app.RoomView = Backbone.View.extend({
     var users = el.find('.users');
     var usersView = new app.UsersView({ collection: app.Users });
     var usersElement = usersView.render();
-    $('.users').html(usersElement);
+    $('.users').append(usersElement);
   },
   renderBoard: function () {
     var el = this.$el;

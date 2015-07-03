@@ -12,6 +12,6 @@ var cleanRecentUsers = function () {
   }
 };
 
-setTimeout(cleanRecentUsers, 300000);
+setInterval(cleanRecentUsers, 300000);
 
 module.exports = recentUsers;
