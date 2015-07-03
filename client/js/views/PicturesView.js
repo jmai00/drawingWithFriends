@@ -31,7 +31,7 @@ app.PicturesView = Backbone.View.extend({
     var pic_ids = Object.keys(pictures).reverse();
     _.each(pic_ids, function(pic_id) {
       var li = ul.append('li').attr('class', 'pic');
-      li.append('h4').text(new Date());
+      // li.append('h4').text("Title Placeholder");
       var svg = li.append('svg')
       .attr({
         'class': 'canvas',

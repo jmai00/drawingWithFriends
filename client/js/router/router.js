@@ -18,7 +18,6 @@ app.router = Backbone.Router.extend({
     //TODO refactor all these container emptys
     $('.container').empty();
     $('.toolbar').empty();
-    ('.color-picker').empty();
     var homeView = new app.HomeView();
   },
   draw : function () {
