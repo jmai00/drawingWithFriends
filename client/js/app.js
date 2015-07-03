@@ -6,8 +6,8 @@ var app = app || {};
 $(function() {
   app.Users = new app.UsersCollection();
   app.username = 'Anonymous ' + Math.floor(Math.random() * 1000);
-  // app.sampleUser = new app.UserModel({ collection: app.Users, name:'brian' })
-  // app.Users.add(app.sampleUser);
+  app.sampleUser = new app.UserModel({ collection: app.Users, name:'brian' });
+  app.Users.add(app.sampleUser);
 
   //TODO can these be put in the view please
   $('.item, .menu-li').click(function(e){

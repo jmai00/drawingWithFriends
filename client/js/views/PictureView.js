@@ -10,6 +10,7 @@ app.PictureView = Backbone.View.extend({
     this.colorPickerView = new app.ColorPickerView();
     this.usersView = new app.UsersView({ collection: app.Users });
 
+    app.Users.on('update', this.renderUsers, this);
     this.render(options);
     //TODO another listener for empty lines = delete all lineview subviews
     //we currently have no way to delete lineviews added
@@ -21,6 +22,7 @@ app.PictureView = Backbone.View.extend({
       this.render(options);
       //this.d3;
     }.bind(this, options));
+
 
     this.model.get('lines').on('add', function(line) {
       this.renderLine(line);
@@ -54,7 +56,15 @@ app.PictureView = Backbone.View.extend({
     return d3.mouse(this.d3.node());
   },
 
+  renderUsers: function () {
+    var el = this.$el;
+    var users = el.find('.users');
+    this.usersView = new app.UsersView({ collection: app.Users });
+    $('.users').append(this.usersView.render());
+  },
+
   render: function(options) {
+    this.renderUsers();
     var currentColor = '#000000';
     if (this.toolbar === undefined) {
        this.toolbar = $(options.container[0]).append(this.colorPickerView.$el);

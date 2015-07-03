@@ -3,10 +3,11 @@ var app = app || {};
 app.UsersView = Backbone.View.extend({
   initialize: function() {
   },
-  'tagName': 'ul',
+  'tagName': 'div',
   'className': 'users',
   render: function () {
     var el = this.$el;
+    // el.append('<ul class="usersTitle">Current Users</ul>');
 
     var models = app.Users.models;
     var model, view, element;
@@ -14,11 +15,9 @@ app.UsersView = Backbone.View.extend({
     for(var i = 0; i < models.length; i++) {
       model = models[i];
       view = new app.UserView({ model: model });
-      element = view.render()
-      el.append(element); 
+      element = view.render();
+      el.append(element);
     }
-
     return el;
-
   }
 });
