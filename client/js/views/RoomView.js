@@ -26,7 +26,7 @@ app.RoomView = Backbone.View.extend({
     var pictureView = new app.PictureView({
       model: new app.PictureModel(),
       container: d3.select('.draw'),
-      element: '.draw' //TODO this is a little different compared to below rendering for now cuz d3
+      element: '.draw'
     });
 
     var timerView = new app.TimerView({
@@ -35,6 +35,10 @@ app.RoomView = Backbone.View.extend({
 
     $('.draw').append(pictureView).append(timerView.render());
 
+    var usersView = new app.UsersView({ collection: app.Users });
+    var usersElement = usersView.render();
+    debugger
+    $('.users').html(usersElement);
     // draw.html(drawView);
   }
 });

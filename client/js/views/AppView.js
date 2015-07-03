@@ -16,6 +16,5 @@ app.AppView = Backbone.View.extend({
      });
      $(this.appContainer).append(this.timerView.render());
   }
-
 });
 
