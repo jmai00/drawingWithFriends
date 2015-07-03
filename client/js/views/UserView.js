@@ -5,6 +5,7 @@ app.UserView = Backbone.View.extend({
     // this.render();
   },
   'tagName': 'li',
+  'className': 'user',
   render: function () {
     var name = this.model.get('name');
     var el = this.$el;

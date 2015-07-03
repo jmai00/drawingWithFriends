@@ -5,12 +5,13 @@ var app = app || {};
 
 app.UsersCollection = Backbone.Collection.extend({
   initialize : function(){
-    // socket.emit('gallery needed');
-    // socket.on('gallery served', function(data){
-    //   this.processDbLines(data);
-    // }.bind(this));
+    socket.emit('users needed');
+    socket.on('users served', function(data){
+      this.processUsers(data);
+    }.bind(this));
   },
-  processDbLines : function(lines){
+  processUsers : function(users){
+    debugger
     // this.modelData = {};
     // _.each(lines, function(line){
     //   if ( !this.modelData[line.picture_id] ){

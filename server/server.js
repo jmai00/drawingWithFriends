@@ -69,6 +69,10 @@ io.on('connection', function(socket) {
     util.retrievePictureModels(socket);
   });
 
+  socket.on('users needed', function() {
+    socket.emit('users served', recentUsers);
+  });
+
 
 });
 
