@@ -66,7 +66,11 @@ app.PictureView = Backbone.View.extend({
       $('.toolbar>div.selectColor').on('click', function () {
         $('*').removeClass('selected');
         $(this).addClass('selected');
-        // currentColor = context.colors[$(this).attr('class').split(" ")[1]];
+        console.log($(this).attr('class'));
+        var color = $(this).attr('class').split(" ")[1].replace('select','');
+        console.log(color);
+        $('.currentColor').attr('class', 'currentColor ' + color);
+        console.log($('.currentColor'))
         // console.log(currentColor);
         // context.model.changeColor(currentColor);
       });

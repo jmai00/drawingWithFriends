@@ -16,6 +16,7 @@ body{
 a {
   text-decoration: none;
   color: #222;
+  padding: 10px 5px 10px 5px;
 }
 
 .line {
@@ -23,44 +24,76 @@ a {
   stroke-linecap: round;
 }
 
-.black {
-  stroke: #222222;
+.Black {
+  background-color: #222222;
 }
 
-.white {
-  stroke: #FFFFFF;
+.White {
+  background-color: #FFFFFF;
 }
 
-.gray {
-  stroke: #AAAAAA;
+.Gray {
+  background-color: #AAAAAA;
 }
 
-.darkgray {
-  stroke: #555555;
+.DarkGray {
+  background-color: #555555;
 }
 
-.red {
-  stroke: #FF0000;
+.Red {
+  background-color: #FF0000;
 }
 
-.green {
-  stroke: #00FF00;
+.DarkRed {
+  background-color: #8B0000;
 }
 
-.blue {
-  stroke: #0000FF;
+.Green {
+  background-color: #00FF00;
 }
 
-.cyan {
-  stroke: #00FFFF;
+.DarkGreen {
+  background-color: #008B00;
 }
 
-.yellow {
-  stroke: #FFFF00;
+.Blue {
+  background-color: #0000FF;
 }
 
-.purple {
-  stroke: #FF00FF;
+.DarkBlue {
+  background-color: #0000FF;
+}
+
+.Cyan {
+  background-color: #00FFFF;
+}
+
+.DarkCyan {
+  background-color: #008B8B;
+}
+
+.Yellow {
+  background-color: #FFFF00;
+}
+
+.DarkYellow {
+  background-color: #8B8B00;
+}
+
+.Purple {
+  background-color: #FF00FF;
+}
+
+.DarkPurple {
+  background-color: #8B008B;
+}
+
+.Brown {
+  background-color: #FFDAB9;
+}
+
+.DarkBrown {
+  background-color: #8B4513;
 }
 
 .noFill {
@@ -121,6 +154,14 @@ a {
 
 .thicker {
   stroke-width: 16px;
+}
+
+.currentColor {
+  width: 48px;
+  height: 20px;
+  border: 3px solid #222222;
+  margin: 0px 2px 0px 0px;
+  display: inline-block;
 }
 
 .selectBlack {
@@ -302,7 +343,6 @@ a {
   height: 2px;
   border: 2px solid #222222;
   background-color: #222222;
-  margin: 2px 0px 2px 0px;
 }
 
 .selectThin {
@@ -397,9 +437,14 @@ svg {
 nav li{
   border: 1px solid #333;
   /*width: 140px;*/
+  height: 20px;
   border-radius: 3px;
   display: inline-block;
-  padding:10px 5px;
+  padding:5px 5px;
+}
+
+nav li a {
+  height: 20px;
 }
 
 nav li a:hover {
@@ -469,7 +514,7 @@ nav {
 }
 
 .roomView * {
-  outline: 1px dashed red;
+/*  outline: 1px dashed red;*/
 }
 
 .draw {
@@ -477,6 +522,7 @@ nav {
   height: 600px;;
   float: left;
   margin: 0 50px;
+
 }
 
 .users {
