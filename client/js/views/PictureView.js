@@ -56,20 +56,28 @@ app.PictureView = Backbone.View.extend({
     return d3.mouse(this.d3.node());
   },
 
-  renderUsers: function () {
+  renderUsers: function (options) {
     var el = this.$el;
     var users = el.find('.users');
+    users.empty();
     this.usersView = new app.UsersView({ collection: app.Users });
-    $('.users').append(this.usersView.render());
+    $('.users').append($(this.usersView.render().children()));
   },
 
   render: function(options) {
-    this.renderUsers();
+    if (!this.users) {
+     this.usersView.render();
+     this.users = $(options.container[0]).append(this.usersView.$el);
+     $('.users').prepend('<ul class="usersTitle">Current Users</ul>');
+    } else {
+      this.renderUsers();
+      // $('.users').empty();
+      // this.usersView.render();
+      // this.users = $(options.container[0]).append(this.usersView.$el);
+    }
     var currentColor = '#000000';
     if (this.toolbar === undefined) {
        this.toolbar = $(options.container[0]).append(this.colorPickerView.$el);
-       this.usersView.render();
-       this.users = $(options.container[0]).append(this.usersView.$el);
       // $(options.container[0]).find('.toolbar').remove();
       $('.toolbar>div.selectColor').on('click', function () {
         $('*').removeClass('selected');

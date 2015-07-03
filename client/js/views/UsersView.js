@@ -7,8 +7,6 @@ app.UsersView = Backbone.View.extend({
   'className': 'users',
   render: function () {
     var el = this.$el;
-    // el.append('<ul class="usersTitle">Current Users</ul>');
-
     var models = app.Users.models;
     var model, view, element;
 
