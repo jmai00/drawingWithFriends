@@ -77,10 +77,12 @@ app.PictureView = Backbone.View.extend({
 
   render: function(options) {
     if (this.users === undefined) {
-     this.usersView.render();
-     this.users = $(options.container[0]).append(this.usersView.$el);
-     $('.users').prepend('<div class="usersTitle">Current Users</div>');
+      this.usersView.render();
+      this.users = $(options.container[0]).append(this.usersView.$el);
+      $('.users').prepend('<div class="usersTitle">Current Users</div>');
     } else {
+      $('.users').empty();
+      $('.users').prepend('<div class="usersTitle">Current Users</div>');
       this.usersView.render();
     }
     var currentColor = '#000000';
