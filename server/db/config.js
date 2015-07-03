@@ -26,25 +26,25 @@ bookshelf.knex.schema.hasTable('User').then(function(exists) {
   } 
 });
 
-bookshelf.knex.schema.hasTable('Room').then(function(exists) {
-  if (!exists) {
-    bookshelf.knex.schema.createTable('Room', function (room) {
-      room.increments('id').unsigned().primary();
-      room.string('title', 40);
-      room.string('description', 40);
-      room.string('password', 100);
-      room.timestamps();
-    }).then(function (table) {
-      console.log('Created table Room');
-    });
-  } 
-});
+// bookshelf.knex.schema.hasTable('Room').then(function(exists) {
+//   if (!exists) {
+//     bookshelf.knex.schema.createTable('Room', function (room) {
+//       room.increments('id').unsigned().primary();
+//       room.string('title', 40);
+//       room.string('description', 40);
+//       room.string('password', 100);
+//       room.timestamps();
+//     }).then(function (table) {
+//       console.log('Created table Room');
+//     });
+//   } 
+// });
 
 bookshelf.knex.schema.hasTable('Picture').then(function (exists) {
   if (!exists) {
     bookshelf.knex.schema.createTable('Picture', function (picture) {
       picture.increments('id').unsigned().primary();
-      picture.integer('user_id').unsigned().references('User.id');
+      // picture.integer('user_id').unsigned().references('User.id');
       picture.string('title', 40);
       picture.string('description', 40);
       picture.timestamps();
@@ -54,17 +54,17 @@ bookshelf.knex.schema.hasTable('Picture').then(function (exists) {
   }
 });
 
-bookshelf.knex.schema.hasTable('Join_Room').then(function(exists) {
-  if (!exists) {
-    bookshelf.knex.schema.createTable('Join_Room', function (room) {
-      room.increments('id').unsigned().primary();
-      room.integer('user_id').unsigned().references('User.id');
-      room.integer('room_id').unsigned().references('Room.id');
-    }).then(function (table) {
-      console.log('Created table Join_Room');
-    });
-  } 
-});
+// bookshelf.knex.schema.hasTable('Join_Room').then(function(exists) {
+//   if (!exists) {
+//     bookshelf.knex.schema.createTable('Join_Room', function (room) {
+//       room.increments('id').unsigned().primary();
+//       room.integer('user_id').unsigned().references('User.id');
+//       room.integer('room_id').unsigned().references('Room.id');
+//     }).then(function (table) {
+//       console.log('Created table Join_Room');
+//     });
+//   } 
+// });
 
 bookshelf.knex.schema.hasTable('Line').then(function (exists) {
   if (!exists) {
