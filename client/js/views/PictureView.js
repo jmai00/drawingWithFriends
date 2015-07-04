@@ -11,7 +11,9 @@ app.PictureView = Backbone.View.extend({
     this.usersView = new app.UsersView({ collection: app.Users });
     this.chatView = new app.ChatView();
 
-    app.Users.on('update', this.renderUsers, this);
+    app.Users.on('users updated', function() {
+      this.renderUsers(options); 
+    }, this);
     this.render(options);
     //TODO another listener for empty lines = delete all lineview subviews
     //we currently have no way to delete lineviews added
@@ -59,24 +61,6 @@ app.PictureView = Backbone.View.extend({
 
   renderUsers: function (options) {
 
-    // var users = $('.users');
-    // this.usersView = new app.UsersView({ collection: app.Users });
-    // var users = this.usersView.render();
-    // console.log(users);
-    // $('.users').prepend('<ul class="usersTitle">Current Users</ul>');
-    // $('.users ul').append(users);
-
-
-    var el = this.$el;
-    var users = el.find('.users');
-    var usersView = new app.UsersView({ collection: app.Users });
-    usersView.render();
-    // var usersElement = usersView.render();
-    console.log(usersView);
-    // $('.users').append(usersElement);
-  },
-
-  render: function(options) {
     if (this.users === undefined) {
       this.usersView.render();
       this.users = $(options.container[0]).append(this.usersView.$el);
@@ -86,6 +70,35 @@ app.PictureView = Backbone.View.extend({
       $('.users').prepend('<div class="usersTitle">Current Users</div>');
       this.usersView.render();
     }
+
+    // var users = $('.users');
+    // this.usersView = new app.UsersView({ collection: app.Users });
+    // var users = this.usersView.render();
+    // console.log(users);
+    // $('.users').prepend('<ul class="usersTitle">Current Users</ul>');
+    // $('.users ul').append(users);
+
+
+    // var el = this.$el;
+    // var users = el.find('.users');
+    // var usersView = new app.UsersView({ collection: app.Users });
+    // usersView.render();
+    // // var usersElement = usersView.render();
+    // console.log(usersView);
+    // // $('.users').append(usersElement);
+  },
+
+  render: function(options) {
+    this.renderUsers(options);
+    // if (this.users === undefined) {
+    //   this.usersView.render();
+    //   this.users = $(options.container[0]).append(this.usersView.$el);
+    //   $('.users').prepend('<div class="usersTitle">Current Users</div>');
+    // } else {
+    //   $('.users').empty();
+    //   $('.users').prepend('<div class="usersTitle">Current Users</div>');
+    //   this.usersView.render();
+    // }
     var currentColor = '#000000';
     if (this.toolbar === undefined) {
        this.toolbar = $(options.container[0]).append(this.colorPickerView.$el);

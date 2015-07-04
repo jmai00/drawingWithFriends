@@ -5,8 +5,11 @@ var app = app || {};
 
 app.UsersCollection = Backbone.Collection.extend({
   initialize : function(){
+    var collection = this;
     this.requestUsers();
-    setTimeout(this.requestUsers, 300000);
+    setInterval(function() {
+      collection.requestUsers(); 
+    }, 1000);
   },
   requestUsers: function () {
     socket.emit('users needed');
